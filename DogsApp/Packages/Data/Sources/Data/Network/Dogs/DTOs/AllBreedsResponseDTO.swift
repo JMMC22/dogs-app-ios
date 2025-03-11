@@ -8,9 +8,9 @@
 import Foundation
 import Domain
 
-public struct AllBreedsResponseDTO: Decodable {
-    let message: [String: [String]]?
-    let status: String?
+public struct AllBreedsResponseDTO: Codable {
+    public let message: [String: [String]]?
+    public let status: String?
 }
 
 extension AllBreedsResponseDTO {
