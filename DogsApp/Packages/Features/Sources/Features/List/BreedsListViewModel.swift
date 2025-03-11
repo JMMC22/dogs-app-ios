@@ -8,7 +8,7 @@
 import Foundation
 import Domain
 
-public class DogsListViewModel: ObservableObject {
+public class BreedsListViewModel: ObservableObject {
 
     @Published var breeds: [DogBreed] = []
     @Published var searchText: String = ""
@@ -30,7 +30,7 @@ public class DogsListViewModel: ObservableObject {
 }
 
 // MARK: Remote requests
-extension DogsListViewModel {
+extension BreedsListViewModel {
     func fetchAllDogsBreeds() {
         Task {
             let result = await fetchAllBreeds.execute()
@@ -58,7 +58,7 @@ extension DogsListViewModel {
 }
 
 // MARK: Search
-extension DogsListViewModel {
+extension BreedsListViewModel {
     private func setupSearch() {
         $searchText
             .debounce(for: .milliseconds(300), scheduler: RunLoop.main)

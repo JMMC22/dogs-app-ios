@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-public struct DogsListView: View {
+public struct BreedsListView: View {
 
-    @StateObject private var viewModel: DogsListViewModel
+    @StateObject private var viewModel: BreedsListViewModel
 
-    public init(viewModel: DogsListViewModel) {
+    public init(viewModel: BreedsListViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
 

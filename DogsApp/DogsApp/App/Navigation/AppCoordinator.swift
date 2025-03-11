@@ -49,7 +49,7 @@ extension AppCoordinator {
     func build(page: AppCoordinator.Page) -> some View {
         switch page {
         case .list:
-            DIContainer.shared.container.resolve(DogsListView.self)
+            DIContainer.shared.container.resolve(BreedsListView.self)
         }
     }
 }

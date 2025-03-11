@@ -13,12 +13,20 @@ final class ScreensAssembly: Assembly {
 
     func assemble(container: Container) {
 
-        // MARK: Dogs list view
-        container.register(DogsListView.self) { resolver in
-            guard let viewModel = resolver.resolve(DogsListViewModel.self) else {
-                fatalError("DogsListViewModel dependency could not be resolved")
+        // MARK: Breeds list view
+        container.register(BreedsListView.self) { resolver in
+            guard let viewModel = resolver.resolve(BreedsListViewModel.self) else {
+                fatalError("BreedsListViewModel dependency could not be resolved")
             }
-            return DogsListView(viewModel: viewModel)
+            return BreedsListView(viewModel: viewModel)
+        }
+
+        // MARK: Breed details view
+        container.register(BreedDetailsView.self) { resolver in
+            guard let viewModel = resolver.resolve(BreedDetailsViewModel.self) else {
+                fatalError("BreedDetailsView dependency could not be resolved")
+            }
+            return BreedDetailsView(viewModel: viewModel)
         }
     }
 }
