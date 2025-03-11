@@ -15,6 +15,8 @@
 		0C8606B52D80B69400BB37BC /* ViewModelsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8606B42D80B69400BB37BC /* ViewModelsAssembly.swift */; };
 		0C8606B72D80B6D200BB37BC /* Features in Frameworks */ = {isa = PBXBuildFile; productRef = 0C8606B62D80B6D200BB37BC /* Features */; };
 		0C8606B92D80B70200BB37BC /* ScreensAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8606B82D80B70200BB37BC /* ScreensAssembly.swift */; };
+		0C8606BC2D80B81600BB37BC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8606BB2D80B81600BB37BC /* AppCoordinator.swift */; };
+		0C8606BE2D80B85A00BB37BC /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8606BD2D80B85A00BB37BC /* AppCoordinatorView.swift */; };
 		0CC363702D80858B005F58FA /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 0CC3636F2D80858B005F58FA /* Data */; };
 		0CE7F77D2D8074A5006431D2 /* DogsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7F77C2D8074A5006431D2 /* DogsAppApp.swift */; };
 		0CE7F77F2D8074A5006431D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7F77E2D8074A5006431D2 /* ContentView.swift */; };
@@ -51,6 +53,8 @@
 		0C8606B22D80B44100BB37BC /* UseCasesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesAssembly.swift; sourceTree = "<group>"; };
 		0C8606B42D80B69400BB37BC /* ViewModelsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembly.swift; sourceTree = "<group>"; };
 		0C8606B82D80B70200BB37BC /* ScreensAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensAssembly.swift; sourceTree = "<group>"; };
+		0C8606BB2D80B81600BB37BC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		0C8606BD2D80B85A00BB37BC /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
 		0CE7F7792D8074A5006431D2 /* DogsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE7F77C2D8074A5006431D2 /* DogsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsAppApp.swift; sourceTree = "<group>"; };
 		0CE7F77E2D8074A5006431D2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				0C8606A62D80B27600BB37BC /* DI */,
+				0C8606BA2D80B7FA00BB37BC /* Navigation */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -120,6 +125,15 @@
 				0C8606B42D80B69400BB37BC /* ViewModelsAssembly.swift */,
 			);
 			path = Assemblers;
+			sourceTree = "<group>";
+		};
+		0C8606BA2D80B7FA00BB37BC /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				0C8606BB2D80B81600BB37BC /* AppCoordinator.swift */,
+				0C8606BD2D80B85A00BB37BC /* AppCoordinatorView.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		0CE7F7702D8074A5006431D2 = {
@@ -329,7 +343,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CE7F77F2D8074A5006431D2 /* ContentView.swift in Sources */,
+				0C8606BE2D80B85A00BB37BC /* AppCoordinatorView.swift in Sources */,
 				0C8606B02D80B3AB00BB37BC /* RepositoriesAssembly.swift in Sources */,
+				0C8606BC2D80B81600BB37BC /* AppCoordinator.swift in Sources */,
 				0C8606B52D80B69400BB37BC /* ViewModelsAssembly.swift in Sources */,
 				0C8606AE2D80B30600BB37BC /* DatasourcesAssembly.swift in Sources */,
 				0C8606AC2D80B2B200BB37BC /* NetworkAssembly.swift in Sources */,
