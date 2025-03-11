@@ -11,6 +11,9 @@ public struct BreedsListView: View {
 
     @StateObject private var viewModel: BreedsListViewModel
 
+    // MARK: Navigation
+    @EnvironmentObject var router: NavigationRouter
+
     public init(viewModel: BreedsListViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
@@ -18,7 +21,9 @@ public struct BreedsListView: View {
     public var body: some View {
         List {
             ForEach(viewModel.breeds, id: \.name) { breed in
-                Text(breed.name)
+                Button(breed.name) {
+                    router.event = .presentDetails(breed: breed.name)
+                }
             }
         }
         .searchable(text: $viewModel.searchText)

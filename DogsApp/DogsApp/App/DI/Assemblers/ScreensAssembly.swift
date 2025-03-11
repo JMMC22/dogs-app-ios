@@ -22,8 +22,8 @@ final class ScreensAssembly: Assembly {
         }
 
         // MARK: Breed details view
-        container.register(BreedDetailsView.self) { resolver in
-            guard let viewModel = resolver.resolve(BreedDetailsViewModel.self) else {
+        container.register(BreedDetailsView.self) { (resolver, breed: String) in
+            guard let viewModel = resolver.resolve(BreedDetailsViewModel.self, argument: breed) else {
                 fatalError("BreedDetailsView dependency could not be resolved")
             }
             return BreedDetailsView(viewModel: viewModel)

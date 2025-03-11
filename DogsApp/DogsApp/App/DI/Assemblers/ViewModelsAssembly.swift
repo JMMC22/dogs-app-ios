@@ -21,10 +21,10 @@ final class ViewModelsAssembly: Assembly {
             }
             return BreedsListViewModel(fetchAllBreeds: fetchAllBreeds)
         }
-    
+
         // MARK: Breed details view model
-        container.register(BreedDetailsViewModel.self) { resolver in
-            return BreedDetailsViewModel()
+        container.register(BreedDetailsViewModel.self) { (_, breed: String) in
+            return BreedDetailsViewModel(breed: breed)
         }
     }
 }

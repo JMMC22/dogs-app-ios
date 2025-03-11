@@ -8,5 +8,10 @@
 import Foundation
 
 public class BreedDetailsViewModel: ObservableObject {
-    public init() {}
+    
+    private let breed: String
+
+    public init(breed: String) {
+        self.breed = breed
+    }
 }
