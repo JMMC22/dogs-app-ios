@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C8606A82D80B28900BB37BC /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8606A72D80B28900BB37BC /* DIContainer.swift */; };
+		0C8606AC2D80B2B200BB37BC /* NetworkAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8606AB2D80B2B200BB37BC /* NetworkAssembly.swift */; };
+		0C8606AE2D80B30600BB37BC /* DatasourcesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8606AD2D80B30600BB37BC /* DatasourcesAssembly.swift */; };
+		0C8606B02D80B3AB00BB37BC /* RepositoriesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8606AF2D80B3AB00BB37BC /* RepositoriesAssembly.swift */; };
+		0C8606B32D80B44100BB37BC /* UseCasesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8606B22D80B44100BB37BC /* UseCasesAssembly.swift */; };
 		0CC363702D80858B005F58FA /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 0CC3636F2D80858B005F58FA /* Data */; };
 		0CE7F77D2D8074A5006431D2 /* DogsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7F77C2D8074A5006431D2 /* DogsAppApp.swift */; };
 		0CE7F77F2D8074A5006431D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7F77E2D8074A5006431D2 /* ContentView.swift */; };
@@ -36,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C8606A72D80B28900BB37BC /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		0C8606AB2D80B2B200BB37BC /* NetworkAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAssembly.swift; sourceTree = "<group>"; };
+		0C8606AD2D80B30600BB37BC /* DatasourcesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasourcesAssembly.swift; sourceTree = "<group>"; };
+		0C8606AF2D80B3AB00BB37BC /* RepositoriesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesAssembly.swift; sourceTree = "<group>"; };
+		0C8606B22D80B44100BB37BC /* UseCasesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesAssembly.swift; sourceTree = "<group>"; };
 		0CE7F7792D8074A5006431D2 /* DogsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE7F77C2D8074A5006431D2 /* DogsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsAppApp.swift; sourceTree = "<group>"; };
 		0CE7F77E2D8074A5006431D2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +86,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C8606A52D80B26100BB37BC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0C8606A62D80B27600BB37BC /* DI */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0C8606A62D80B27600BB37BC /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				0C8606A72D80B28900BB37BC /* DIContainer.swift */,
+				0C8606A92D80B29400BB37BC /* Assemblers */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		0C8606A92D80B29400BB37BC /* Assemblers */ = {
+			isa = PBXGroup;
+			children = (
+				0C8606AD2D80B30600BB37BC /* DatasourcesAssembly.swift */,
+				0C8606AB2D80B2B200BB37BC /* NetworkAssembly.swift */,
+				0C8606AF2D80B3AB00BB37BC /* RepositoriesAssembly.swift */,
+				0C8606B22D80B44100BB37BC /* UseCasesAssembly.swift */,
+			);
+			path = Assemblers;
+			sourceTree = "<group>";
+		};
 		0CE7F7702D8074A5006431D2 = {
 			isa = PBXGroup;
 			children = (
@@ -100,10 +138,11 @@
 		0CE7F77B2D8074A5006431D2 /* DogsApp */ = {
 			isa = PBXGroup;
 			children = (
-				0CE7F77C2D8074A5006431D2 /* DogsAppApp.swift */,
-				0CE7F77E2D8074A5006431D2 /* ContentView.swift */,
-				0CE7F7802D8074A6006431D2 /* Assets.xcassets */,
 				0CE7F7822D8074A6006431D2 /* DogsApp.entitlements */,
+				0CE7F77E2D8074A5006431D2 /* ContentView.swift */,
+				0CE7F77C2D8074A5006431D2 /* DogsAppApp.swift */,
+				0CE7F7802D8074A6006431D2 /* Assets.xcassets */,
+				0C8606A52D80B26100BB37BC /* App */,
 				0CE7F7832D8074A6006431D2 /* Preview Content */,
 			);
 			path = DogsApp;
@@ -281,6 +320,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CE7F77F2D8074A5006431D2 /* ContentView.swift in Sources */,
+				0C8606B02D80B3AB00BB37BC /* RepositoriesAssembly.swift in Sources */,
+				0C8606AE2D80B30600BB37BC /* DatasourcesAssembly.swift in Sources */,
+				0C8606AC2D80B2B200BB37BC /* NetworkAssembly.swift in Sources */,
+				0C8606B32D80B44100BB37BC /* UseCasesAssembly.swift in Sources */,
+				0C8606A82D80B28900BB37BC /* DIContainer.swift in Sources */,
 				0CE7F77D2D8074A5006431D2 /* DogsAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

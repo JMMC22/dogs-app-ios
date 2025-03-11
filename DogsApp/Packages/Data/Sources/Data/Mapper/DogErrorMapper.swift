@@ -9,7 +9,10 @@ import Foundation
 import Domain
 import Network
 
-class DogErrorMapper {
+public class DogErrorMapper {
+
+    public init() {}
+
     func map(error: Error) -> DogAppError {
         switch error {
         case let requestError as RequestError:
