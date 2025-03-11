@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CC3636E2D8080AF005F58FA /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = 0CC3636D2D8080AF005F58FA /* Network */; };
+		0CC363702D80858B005F58FA /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 0CC3636F2D80858B005F58FA /* Data */; };
 		0CE7F77D2D8074A5006431D2 /* DogsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7F77C2D8074A5006431D2 /* DogsAppApp.swift */; };
 		0CE7F77F2D8074A5006431D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7F77E2D8074A5006431D2 /* ContentView.swift */; };
 		0CE7F7812D8074A6006431D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CE7F7802D8074A6006431D2 /* Assets.xcassets */; };
@@ -55,7 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CE7F7AD2D8075FF006431D2 /* Swinject in Frameworks */,
-				0CC3636E2D8080AF005F58FA /* Network in Frameworks */,
+				0CC363702D80858B005F58FA /* Data in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,7 +160,7 @@
 			name = DogsApp;
 			packageProductDependencies = (
 				0CE7F7AC2D8075FF006431D2 /* Swinject */,
-				0CC3636D2D8080AF005F58FA /* Network */,
+				0CC3636F2D80858B005F58FA /* Data */,
 			);
 			productName = DogsApp;
 			productReference = 0CE7F7792D8074A5006431D2 /* DogsApp.app */;
@@ -663,9 +663,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0CC3636D2D8080AF005F58FA /* Network */ = {
+		0CC3636F2D80858B005F58FA /* Data */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Network;
+			productName = Data;
 		};
 		0CE7F7A82D807578006431D2 /* SwiftLintBuildToolPlugin */ = {
 			isa = XCSwiftPackageProductDependency;

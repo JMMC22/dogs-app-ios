@@ -8,6 +8,12 @@
       location = "group:Packages"
       name = "Packages">
       <FileRef
+         location = "group:Domain">
+      </FileRef>
+      <FileRef
+         location = "group:Data">
+      </FileRef>
+      <FileRef
          location = "group:Network">
       </FileRef>
    </Group>
