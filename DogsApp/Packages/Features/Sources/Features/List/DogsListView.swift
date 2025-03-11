@@ -21,6 +21,7 @@ public struct DogsListView: View {
                 Text(breed.name)
             }
         }
+        .searchable(text: $viewModel.searchText)
         .onAppear {
             viewModel.viewOnAppear()
         }

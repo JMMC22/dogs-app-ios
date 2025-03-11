@@ -11,6 +11,7 @@ import Domain
 public class DogsListViewModel: ObservableObject {
 
     @Published var breeds: [DogBreed] = []
+    @Published var searchText: String = ""
 
     // MARK: Use cases
     private let fetchAllBreeds: FetchAllBreeds
@@ -20,30 +21,46 @@ public class DogsListViewModel: ObservableObject {
     }
 
     func viewOnAppear() {
-        Task {
-            await fetchAllBreeds()
-        }
+        setupSearch()
+        fetchAllDogsBreeds()
     }
 }
 
 // MARK: Remote requests
 extension DogsListViewModel {
-    func fetchAllBreeds() async {
-        let result = await fetchAllBreeds.execute()
-
-        switch result {
-        case .success(let breeds):
-            self.fetchAllBreedsDidSuccess(breeds: breeds)
-        case .failure(let error):
-            self.fetchAllBreedsDidFail(error: error)
+    func fetchAllDogsBreeds() {
+        Task {
+            let result = await fetchAllBreeds.execute()
+            
+            switch result {
+            case .success(let breeds):
+                self.fetchAllBreedsDidSuccess(breeds: breeds)
+            case .failure(let error):
+                self.fetchAllBreedsDidFail(error: error)
+            }
         }
     }
 
     private func fetchAllBreedsDidSuccess(breeds: [DogBreed]) {
-        self.breeds = breeds
+        DispatchQueue.main.async {
+            self.breeds = breeds
+        }
     }
 
     private func fetchAllBreedsDidFail(error: DogAppError) {
         print(error.localizedDescription)
+    }
+}
+
+// MARK: Search
+extension DogsListViewModel {
+    private func setupSearch() {
+        $searchText
+            .debounce(for: .milliseconds(300), scheduler: RunLoop.main) // Reduce llamadas innecesarias
+            .removeDuplicates()
+            .map { searchText in
+                searchText.isEmpty ? self.breeds : self.breeds.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            }
+            .assign(to: &$breeds)
     }
 }
