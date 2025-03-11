@@ -6,12 +6,47 @@
 //
 
 import Foundation
+import Domain
 
 public class BreedDetailsViewModel: ObservableObject {
-    
-    private let breed: String
 
-    public init(breed: String) {
+    @Published var imageURL: URL?
+
+    private let breed: String
+    private let fetchRandomImage: FetchRandomImage
+
+    public init(breed: String, fetchRandomImage: FetchRandomImage) {
         self.breed = breed
+        self.fetchRandomImage = fetchRandomImage
+    }
+
+    func viewDidAppear() {
+        fecthRandomImage()
+    }
+}
+
+// MARK: Fetch image
+extension BreedDetailsViewModel {
+    private func fecthRandomImage() {
+        Task {
+            let result = await fetchRandomImage.execute(breed: breed)
+            
+            switch result {
+            case .success(let url):
+                self.fecthRandomImageDidSuccess(url: url)
+            case .failure(let error):
+                self.fecthRandomImageDidFail(error: error)
+            }
+        }
+    }
+
+    private func fecthRandomImageDidSuccess(url: URL) {
+        DispatchQueue.main.async {
+            self.imageURL = url
+        }
+    }
+
+    private func fecthRandomImageDidFail(error: DogAppError) {
+        print(error.localizedDescription)
     }
 }

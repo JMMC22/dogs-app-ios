@@ -23,8 +23,11 @@ final class ViewModelsAssembly: Assembly {
         }
 
         // MARK: Breed details view model
-        container.register(BreedDetailsViewModel.self) { (_, breed: String) in
-            return BreedDetailsViewModel(breed: breed)
+        container.register(BreedDetailsViewModel.self) { (resolver, breed: String) in
+            guard let fetchRandomImage = resolver.resolve(FetchRandomImage.self) else {
+                fatalError("FetchRandomImage dependency could not be resolved")
+            }
+            return BreedDetailsViewModel(breed: breed, fetchRandomImage: fetchRandomImage)
         }
     }
 }

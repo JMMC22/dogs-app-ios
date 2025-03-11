@@ -23,5 +23,14 @@ final class RepositoriesAssembly: Assembly {
             return DefaultDogsRepository(remoteDatasource: remoteDatasource,
                                          errorMapper: DogErrorMapper())
         }
+
+        // MARK: Dogs images repository
+        container.register(DogsImagesRepository.self) { resolver in
+            guard let remoteDatasource = resolver.resolve(DogsRemoteDatasource.self) else {
+                fatalError("DogsRemoteDatasource dependency could not be resolved")
+            }
+            return DefaultDogsImagesRepository(remoteDatasource: remoteDatasource,
+                                               errorMapper: DogErrorMapper())
+        }
     }
 }

@@ -16,6 +16,13 @@ public struct BreedDetailsView: View {
     }
 
     public var body: some View {
-        Text("BreedDetailsView")
+        image()
+            .onAppear {
+                viewModel.viewDidAppear()
+            }
+    }
+    
+    private func image() -> some View {
+        AsyncImage(url: viewModel.imageURL)
     }
 }
