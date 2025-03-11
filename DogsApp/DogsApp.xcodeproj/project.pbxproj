@@ -14,6 +14,7 @@
 		0CE7F78F2D8074A7006431D2 /* DogsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7F78E2D8074A7006431D2 /* DogsAppTests.swift */; };
 		0CE7F7992D8074A7006431D2 /* DogsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7F7982D8074A7006431D2 /* DogsAppUITests.swift */; };
 		0CE7F79B2D8074A7006431D2 /* DogsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7F79A2D8074A7006431D2 /* DogsAppUITestsLaunchTests.swift */; };
+		0CE7F7AD2D8075FF006431D2 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0CE7F7AC2D8075FF006431D2 /* Swinject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CE7F7AD2D8075FF006431D2 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +81,7 @@
 				0CE7F78D2D8074A7006431D2 /* DogsAppTests */,
 				0CE7F7972D8074A7006431D2 /* DogsAppUITests */,
 				0CE7F77A2D8074A5006431D2 /* Products */,
+				0CE7F7AB2D8075FF006431D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +132,13 @@
 			path = DogsAppUITests;
 			sourceTree = "<group>";
 		};
+		0CE7F7AB2D8075FF006431D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +156,9 @@
 				0CE7F7A92D807578006431D2 /* PBXTargetDependency */,
 			);
 			name = DogsApp;
+			packageProductDependencies = (
+				0CE7F7AC2D8075FF006431D2 /* Swinject */,
+			);
 			productName = DogsApp;
 			productReference = 0CE7F7792D8074A5006431D2 /* DogsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -220,6 +233,7 @@
 			mainGroup = 0CE7F7702D8074A5006431D2;
 			packageReferences = (
 				0CE7F7A72D80756D006431D2 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				0CE7F7AA2D8075F5006431D2 /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 0CE7F77A2D8074A5006431D2 /* Products */;
 			projectDirPath = "";
@@ -635,6 +649,14 @@
 				minimumVersion = 0.58.2;
 			};
 		};
+		0CE7F7AA2D8075F5006431D2 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -642,6 +664,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0CE7F7A72D80756D006431D2 /* XCRemoteSwiftPackageReference "SwiftLint" */;
 			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		0CE7F7AC2D8075FF006431D2 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CE7F7AA2D8075F5006431D2 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
