@@ -7,21 +7,21 @@
 
 import Foundation
 
-protocol FetchAllBreeds {
+public protocol FetchAllBreeds {
     func execute() async -> Result<[DogBreed], DogAppError>
 }
 
-class DefaultFetchAllBreeds {
+public class DefaultFetchAllBreeds {
 
     private let dogsRepository: DogsRepository
 
-    init(dogsRepository: DogsRepository) {
+    public init(dogsRepository: DogsRepository) {
         self.dogsRepository = dogsRepository
     }
 }
 
 extension DefaultFetchAllBreeds: FetchAllBreeds {
-    func execute() async -> Result<[DogBreed], DogAppError> {
+    public func execute() async -> Result<[DogBreed], DogAppError> {
         return await dogsRepository.fetchAllBreeds()
     }
 }

@@ -8,20 +8,20 @@
 import Foundation
 import Domain
 
-class DefaultDogsRepository {
+public class DefaultDogsRepository {
 
     private let remoteDatasource: DogsRemoteDatasource
     private let errorMapper: DogErrorMapper
 
-    init(remoteDatasource: DogsRemoteDatasource,
-         errorMapper: DogErrorMapper) {
+    public init(remoteDatasource: DogsRemoteDatasource,
+                errorMapper: DogErrorMapper) {
         self.remoteDatasource = remoteDatasource
         self.errorMapper = errorMapper
     }
 }
 
 extension DefaultDogsRepository: DogsRepository {
-    func fetchAllBreeds() async -> Result<[DogBreed], DogAppError> {
+    public func fetchAllBreeds() async -> Result<[DogBreed], DogAppError> {
         let result = await remoteDatasource.fetchAllBreeds()
 
         switch result {

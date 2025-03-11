@@ -8,21 +8,21 @@
 import Foundation
 import Network
 
-protocol DogsRemoteDatasource {
+public protocol DogsRemoteDatasource {
     func fetchAllBreeds() async -> Result<AllBreedsResponseDTO, RequestError>
 }
 
-class DefaultDogsRemoteDatasource {
+public class DefaultDogsRemoteDatasource {
 
     private let httpClient: HTTPClient
 
-    init(httpClient: HTTPClient) {
+    public init(httpClient: HTTPClient) {
         self.httpClient = httpClient
     }
 }
 
 extension DefaultDogsRemoteDatasource: DogsRemoteDatasource {
-    func fetchAllBreeds() async -> Result<AllBreedsResponseDTO, RequestError> {
+    public func fetchAllBreeds() async -> Result<AllBreedsResponseDTO, RequestError> {
         let endpoint = DogsEndpoint.getAllBreeds
         let result = await httpClient.request(endpoint: endpoint)
 
