@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AllBreedsResponseDTO: Decodable {
+public struct AllBreedsResponseDTO: Decodable {
     let message: [String: [String]]?
     let status: String?
 }
