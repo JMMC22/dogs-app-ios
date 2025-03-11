@@ -46,7 +46,6 @@
 		0CE7F7942D8074A7006431D2 /* DogsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE7F7982D8074A7006431D2 /* DogsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsAppUITests.swift; sourceTree = "<group>"; };
 		0CE7F79A2D8074A7006431D2 /* DogsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		0CE7F7AF2D8077E8006431D2 /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Network; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +81,6 @@
 				0CE7F78D2D8074A7006431D2 /* DogsAppTests */,
 				0CE7F7972D8074A7006431D2 /* DogsAppUITests */,
 				0CE7F7AB2D8075FF006431D2 /* Frameworks */,
-				0CE7F7AE2D8077C9006431D2 /* Modules */,
 				0CE7F77A2D8074A5006431D2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -139,14 +137,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		0CE7F7AE2D8077C9006431D2 /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				0CE7F7AF2D8077E8006431D2 /* Network */,
-			);
-			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
