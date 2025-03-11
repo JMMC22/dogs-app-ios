@@ -16,6 +16,13 @@ public struct DogsListView: View {
     }
 
     public var body: some View {
-        Text("DogsListView")
+        List {
+            ForEach(viewModel.breeds, id: \.name) { breed in
+                Text(breed.name)
+            }
+        }
+        .onAppear {
+            viewModel.viewOnAppear()
+        }
     }
 }

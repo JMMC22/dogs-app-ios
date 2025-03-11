@@ -17,7 +17,7 @@ class AppCoordinator: ObservableObject {
 extension AppCoordinator {
     enum Page: Hashable, Identifiable {
         case list
-        
+
         var id: String {
             String(describing: self)
         }
