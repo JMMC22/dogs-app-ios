@@ -21,7 +21,9 @@ final class DIContainer {
                 NetworkAssembly(),
                 DatasourcesAssembly(),
                 RepositoriesAssembly(),
-                UseCasesAssembly()
+                UseCasesAssembly(),
+                ViewModelsAssembly(),
+                ScreensAssembly()
             ],
             container: container)
     }

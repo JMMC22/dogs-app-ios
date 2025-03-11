@@ -12,6 +12,9 @@
 		0C8606AE2D80B30600BB37BC /* DatasourcesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8606AD2D80B30600BB37BC /* DatasourcesAssembly.swift */; };
 		0C8606B02D80B3AB00BB37BC /* RepositoriesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8606AF2D80B3AB00BB37BC /* RepositoriesAssembly.swift */; };
 		0C8606B32D80B44100BB37BC /* UseCasesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8606B22D80B44100BB37BC /* UseCasesAssembly.swift */; };
+		0C8606B52D80B69400BB37BC /* ViewModelsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8606B42D80B69400BB37BC /* ViewModelsAssembly.swift */; };
+		0C8606B72D80B6D200BB37BC /* Features in Frameworks */ = {isa = PBXBuildFile; productRef = 0C8606B62D80B6D200BB37BC /* Features */; };
+		0C8606B92D80B70200BB37BC /* ScreensAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8606B82D80B70200BB37BC /* ScreensAssembly.swift */; };
 		0CC363702D80858B005F58FA /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 0CC3636F2D80858B005F58FA /* Data */; };
 		0CE7F77D2D8074A5006431D2 /* DogsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7F77C2D8074A5006431D2 /* DogsAppApp.swift */; };
 		0CE7F77F2D8074A5006431D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7F77E2D8074A5006431D2 /* ContentView.swift */; };
@@ -46,6 +49,8 @@
 		0C8606AD2D80B30600BB37BC /* DatasourcesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasourcesAssembly.swift; sourceTree = "<group>"; };
 		0C8606AF2D80B3AB00BB37BC /* RepositoriesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesAssembly.swift; sourceTree = "<group>"; };
 		0C8606B22D80B44100BB37BC /* UseCasesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesAssembly.swift; sourceTree = "<group>"; };
+		0C8606B42D80B69400BB37BC /* ViewModelsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembly.swift; sourceTree = "<group>"; };
+		0C8606B82D80B70200BB37BC /* ScreensAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensAssembly.swift; sourceTree = "<group>"; };
 		0CE7F7792D8074A5006431D2 /* DogsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE7F77C2D8074A5006431D2 /* DogsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsAppApp.swift; sourceTree = "<group>"; };
 		0CE7F77E2D8074A5006431D2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C8606B72D80B6D200BB37BC /* Features in Frameworks */,
 				0CE7F7AD2D8075FF006431D2 /* Swinject in Frameworks */,
 				0CC363702D80858B005F58FA /* Data in Frameworks */,
 			);
@@ -109,7 +115,9 @@
 				0C8606AD2D80B30600BB37BC /* DatasourcesAssembly.swift */,
 				0C8606AB2D80B2B200BB37BC /* NetworkAssembly.swift */,
 				0C8606AF2D80B3AB00BB37BC /* RepositoriesAssembly.swift */,
+				0C8606B82D80B70200BB37BC /* ScreensAssembly.swift */,
 				0C8606B22D80B44100BB37BC /* UseCasesAssembly.swift */,
+				0C8606B42D80B69400BB37BC /* ViewModelsAssembly.swift */,
 			);
 			path = Assemblers;
 			sourceTree = "<group>";
@@ -200,6 +208,7 @@
 			packageProductDependencies = (
 				0CE7F7AC2D8075FF006431D2 /* Swinject */,
 				0CC3636F2D80858B005F58FA /* Data */,
+				0C8606B62D80B6D200BB37BC /* Features */,
 			);
 			productName = DogsApp;
 			productReference = 0CE7F7792D8074A5006431D2 /* DogsApp.app */;
@@ -321,9 +330,11 @@
 			files = (
 				0CE7F77F2D8074A5006431D2 /* ContentView.swift in Sources */,
 				0C8606B02D80B3AB00BB37BC /* RepositoriesAssembly.swift in Sources */,
+				0C8606B52D80B69400BB37BC /* ViewModelsAssembly.swift in Sources */,
 				0C8606AE2D80B30600BB37BC /* DatasourcesAssembly.swift in Sources */,
 				0C8606AC2D80B2B200BB37BC /* NetworkAssembly.swift in Sources */,
 				0C8606B32D80B44100BB37BC /* UseCasesAssembly.swift in Sources */,
+				0C8606B92D80B70200BB37BC /* ScreensAssembly.swift in Sources */,
 				0C8606A82D80B28900BB37BC /* DIContainer.swift in Sources */,
 				0CE7F77D2D8074A5006431D2 /* DogsAppApp.swift in Sources */,
 			);
@@ -707,6 +718,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0C8606B62D80B6D200BB37BC /* Features */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Features;
+		};
 		0CC3636F2D80858B005F58FA /* Data */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Data;

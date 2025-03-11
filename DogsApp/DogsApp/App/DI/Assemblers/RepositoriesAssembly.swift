@@ -14,7 +14,7 @@ import Swinject
 final class RepositoriesAssembly: Assembly {
 
     func assemble(container: Container) {
-        
+
         // MARK: Dogs repository
         container.register(DogsRepository.self) { resolver in
             guard let remoteDatasource = resolver.resolve(DogsRemoteDatasource.self) else {
