@@ -16,6 +16,9 @@ public class DogsListViewModel: ObservableObject {
     // MARK: Use cases
     private let fetchAllBreeds: FetchAllBreeds
 
+    // MARK: Private properties
+    private var allBreeds: [DogBreed] = []
+
     public init(fetchAllBreeds: FetchAllBreeds) {
         self.fetchAllBreeds = fetchAllBreeds
     }
@@ -42,6 +45,8 @@ extension DogsListViewModel {
     }
 
     private func fetchAllBreedsDidSuccess(breeds: [DogBreed]) {
+        allBreeds = breeds
+
         DispatchQueue.main.async {
             self.breeds = breeds
         }
@@ -56,11 +61,17 @@ extension DogsListViewModel {
 extension DogsListViewModel {
     private func setupSearch() {
         $searchText
-            .debounce(for: .milliseconds(300), scheduler: RunLoop.main) // Reduce llamadas innecesarias
+            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
             .removeDuplicates()
-            .map { searchText in
-                searchText.isEmpty ? self.breeds : self.breeds.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
-            }
+            .map(handleFilter)
             .assign(to: &$breeds)
+    }
+
+    private func handleFilter(value: String) -> [DogBreed] {
+        searchText.isEmpty ? self.allBreeds : self.filter()
+    }
+
+    private func filter() -> [DogBreed] {
+        self.allBreeds.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
     }
 }
