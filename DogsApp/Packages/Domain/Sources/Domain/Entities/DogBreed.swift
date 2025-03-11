@@ -8,8 +8,8 @@
 import Foundation
 
 public struct DogBreed {
-    let name: String
-    let categories: [String]
+    public let name: String
+    public let categories: [String]
 
     public init(name: String, 
                 categories: [String]) {
