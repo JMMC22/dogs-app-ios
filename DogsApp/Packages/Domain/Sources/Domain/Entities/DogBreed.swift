@@ -7,7 +7,13 @@
 
 import Foundation
 
-struct DogBreed {
+public struct DogBreed {
     let name: String
     let categories: [String]
+
+    public init(name: String, 
+                categories: [String]) {
+        self.name = name
+        self.categories = categories
+    }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import Network
 
-enum DogAppError: Error {
+public enum DogAppError: Error {
     case generic
     case network(RequestError)
     case unknown

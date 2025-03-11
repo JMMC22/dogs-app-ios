@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol DogsRepository {
+public protocol DogsRepository {
     func fetchAllBreeds() async -> Result<[DogBreed], DogAppError>
 }
