@@ -39,6 +39,8 @@ public struct BreedsListView: View {
             .padding(VisualConstants.containerPadding)
         }
         .searchable(text: $viewModel.searchText)
+        .errorAlert(isPresented: .constant(viewModel.error != nil),
+                    message: viewModel.error?.localizedDescription ?? "Error")
         .onAppear {
             viewModel.viewOnAppear()
         }

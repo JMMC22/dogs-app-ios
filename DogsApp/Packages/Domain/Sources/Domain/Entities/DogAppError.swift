@@ -14,7 +14,7 @@ public enum DogAppError: Error {
     case unknown
 }
 
-extension DogAppError {
+public extension DogAppError {
 
     var localizedDescription: String {
         switch self {

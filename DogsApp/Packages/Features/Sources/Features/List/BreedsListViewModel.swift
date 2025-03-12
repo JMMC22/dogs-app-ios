@@ -14,6 +14,7 @@ public class BreedsListViewModel: ObservableObject {
 
     @Published var breeds: [DogBreed] = []
     @Published var searchText: String = ""
+    @Published var error: DogAppError?
 
     // MARK: - Use cases
 
@@ -58,7 +59,9 @@ extension BreedsListViewModel {
     }
 
     private func fetchAllBreedsDidFail(error: DogAppError) {
-        print(error.localizedDescription)
+        DispatchQueue.main.async {
+            self.error = error
+        }
     }
 }
 
