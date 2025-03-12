@@ -19,24 +19,16 @@ public struct BreedsListView: View {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
 
-    // MARK: - Visual constants
-
-    private enum VisualConstants {
-        static let containerPadding: EdgeInsets = EdgeInsets(top: 12, leading: 16, bottom: 24, trailing: 16)
-        static let listSpacing: CGFloat = 12
-    }
-
     // MARK: - Body
     public var body: some View {
         ScrollView {
-            LazyVStack(spacing: VisualConstants.listSpacing) {
-                ForEach(viewModel.breeds, id: \.name) { breed in
-                    BreedsListRowView(name: breed.name) {
-                        router.event = .presentDetails(breed: breed.name)
-                    }
+            if viewModel.isLoading {
+                ProgressView()
+            } else {
+                BreedsListContainerView(viewModel: viewModel) { event in
+                    router.event = event
                 }
             }
-            .padding(VisualConstants.containerPadding)
         }
         .searchable(text: $viewModel.searchText)
         .errorAlert(isPresented: .constant(viewModel.error != nil),
@@ -44,5 +36,38 @@ public struct BreedsListView: View {
         .onAppear {
             viewModel.viewOnAppear()
         }
+    }
+}
+
+struct BreedsListContainerView: View {
+
+    @ObservedObject private var viewModel: BreedsListViewModel
+
+    // MARK: - Navigation
+
+    private let navigateTo: (AppNavigationEvent) -> Void
+
+    init(viewModel: BreedsListViewModel, 
+         navigateTo: @escaping (AppNavigationEvent) -> Void) {
+        self.viewModel = viewModel
+        self.navigateTo = navigateTo
+    }
+    
+    // MARK: - Visual constants
+
+    private enum VisualConstants {
+        static let containerPadding: EdgeInsets = EdgeInsets(top: 12, leading: 16, bottom: 24, trailing: 16)
+        static let listSpacing: CGFloat = 12
+    }
+
+    var body: some View {
+        LazyVStack(spacing: VisualConstants.listSpacing) {
+            ForEach(viewModel.breeds, id: \.name) { breed in
+                BreedsListRowView(name: breed.name) {
+                    navigateTo(.presentDetails(breed: breed.name))
+                }
+            }
+        }
+        .padding(VisualConstants.containerPadding)
     }
 }
