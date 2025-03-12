@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UI
 
 public struct BreedDetailsView: View {
 
@@ -45,5 +46,6 @@ public struct BreedDetailsView: View {
 
     private func title() -> some View {
         Text(viewModel.breed.capitalized)
+            .dogFont(.Roboto(24, weight: .black), color: .textBlack)
     }
 }

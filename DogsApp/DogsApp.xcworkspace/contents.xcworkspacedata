@@ -8,16 +8,19 @@
       location = "group:Packages"
       name = "Packages">
       <FileRef
-         location = "group:Features">
+         location = "group:Data">
       </FileRef>
       <FileRef
          location = "group:Domain">
       </FileRef>
       <FileRef
-         location = "group:Data">
+         location = "group:Features">
       </FileRef>
       <FileRef
          location = "group:Network">
+      </FileRef>
+      <FileRef
+         location = "group:UI">
       </FileRef>
    </Group>
 </Workspace>
