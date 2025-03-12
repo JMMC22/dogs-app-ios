@@ -17,6 +17,7 @@ class AppCoordinator: ObservableObject {
 extension AppCoordinator {
     enum Page: Hashable, Identifiable {
         case list
+        case details(breed: String)
 
         var id: String {
             String(describing: self)
@@ -49,7 +50,9 @@ extension AppCoordinator {
     func build(page: AppCoordinator.Page) -> some View {
         switch page {
         case .list:
-            DIContainer.shared.container.resolve(DogsListView.self)
+            DIContainer.shared.container.resolve(BreedsListView.self)
+        case .details(let breed):
+            DIContainer.shared.container.resolve(BreedDetailsView.self, argument: breed)
         }
     }
 }

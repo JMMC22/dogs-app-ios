@@ -10,6 +10,7 @@ import Network
 
 enum DogsEndpoint {
     case getAllBreeds
+    case getRandomImageBy(breed: String)
 }
 
 extension DogsEndpoint: Endpoint {
@@ -20,7 +21,7 @@ extension DogsEndpoint: Endpoint {
 
     var header: [String : String]? {
         switch self {
-        case .getAllBreeds:
+        case .getAllBreeds, .getRandomImageBy:
             return nil
         }
     }
@@ -29,26 +30,28 @@ extension DogsEndpoint: Endpoint {
         switch self {
         case .getAllBreeds:
             return "/api/breeds/list/all"
+        case .getRandomImageBy(breed: let breed):
+            return "/api/breed/\(breed)/images/random"
         }
     }
 
     var method: HTTPMethodType {
         switch self {
-        case .getAllBreeds:
+        case .getAllBreeds, .getRandomImageBy:
             return .get
         }
     }
 
     var body: [String: Any]? {
         switch self {
-        case .getAllBreeds:
+        case .getAllBreeds, .getRandomImageBy:
             return nil
         }
     }
 
     var queryParameters: [URLQueryItem]? {
         switch self {
-        case .getAllBreeds:
+        case .getAllBreeds, .getRandomImageBy:
             return nil
         }
     }

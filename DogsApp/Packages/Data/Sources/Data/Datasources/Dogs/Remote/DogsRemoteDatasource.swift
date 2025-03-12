@@ -10,6 +10,7 @@ import Network
 
 public protocol DogsRemoteDatasource {
     func fetchAllBreeds() async -> Result<AllBreedsResponseDTO, RequestError>
+    func fetchRandomImageBy(breed: String) async -> Result<RandomBreedImageResponseDTO, RequestError>
 }
 
 public class DefaultDogsRemoteDatasource {
@@ -29,6 +30,22 @@ extension DefaultDogsRemoteDatasource: DogsRemoteDatasource {
         switch result {
         case .success(let response):
             guard let response = try? JSONDecoder().decode(AllBreedsResponseDTO.self,
+                                                           from: response) else {
+                return .failure(.decode)
+            }
+            return .success(response)
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
+
+    public func fetchRandomImageBy(breed: String) async -> Result<RandomBreedImageResponseDTO, RequestError> {
+        let endpoint = DogsEndpoint.getRandomImageBy(breed: breed)
+        let result = await httpClient.request(endpoint: endpoint)
+
+        switch result {
+        case .success(let response):
+            guard let response = try? JSONDecoder().decode(RandomBreedImageResponseDTO.self,
                                                            from: response) else {
                 return .failure(.decode)
             }

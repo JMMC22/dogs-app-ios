@@ -7,13 +7,13 @@
 
 import Foundation
 import SwiftUI
+import Features
 
 struct AppCoordinatorView: View {
 
     @StateObject private var coordinator = AppCoordinator()
+    @StateObject private var router = NavigationRouter()
     let rootPage: AppCoordinator.Page
-
-    @State private var sheetHeight: CGFloat = 0
 
     var body: some View {
         NavigationStack(path: $coordinator.path) {
@@ -26,5 +26,18 @@ struct AppCoordinatorView: View {
                 }
         }
         .environmentObject(coordinator)
+        .environmentObject(router)
+        .onReceive(router.$event) { event in
+            if let event = event {
+                handleNavigation(event)
+            }
+        }
+    }
+
+    private func handleNavigation(_ event: AppNavigationEvent) {
+        switch event {
+        case .presentDetails(let breed):
+            coordinator.present(.details(breed: breed))
+        }
     }
 }

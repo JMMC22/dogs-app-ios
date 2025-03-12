@@ -22,5 +22,13 @@ final class UseCasesAssembly: Assembly {
             }
             return DefaultFetchAllBreeds(dogsRepository: dogsRepository)
         }
+
+        // MARK: Fetch randome breed image use case
+        container.register(FetchRandomImage.self) { resolver in
+            guard let dogsImagesRepository = resolver.resolve(DogsImagesRepository.self) else {
+                fatalError("DogsImagesRepository dependency could not be resolved")
+            }
+            return DefaultFetchRandomImage(dogsImagesRepository: dogsImagesRepository)
+        }
     }
 }

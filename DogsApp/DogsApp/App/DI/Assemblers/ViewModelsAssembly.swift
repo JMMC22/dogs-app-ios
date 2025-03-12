@@ -14,12 +14,20 @@ final class ViewModelsAssembly: Assembly {
 
     func assemble(container: Container) {
 
-        // MARK: Dogs list view model
-        container.register(DogsListViewModel.self) { resolver in
+        // MARK: Breeds list view model
+        container.register(BreedsListViewModel.self) { resolver in
             guard let fetchAllBreeds = resolver.resolve(FetchAllBreeds.self) else {
                 fatalError("FetchAllBreeds dependency could not be resolved")
             }
-            return DogsListViewModel(fetchAllBreeds: fetchAllBreeds)
+            return BreedsListViewModel(fetchAllBreeds: fetchAllBreeds)
+        }
+
+        // MARK: Breed details view model
+        container.register(BreedDetailsViewModel.self) { (resolver, breed: String) in
+            guard let fetchRandomImage = resolver.resolve(FetchRandomImage.self) else {
+                fatalError("FetchRandomImage dependency could not be resolved")
+            }
+            return BreedDetailsViewModel(breed: breed, fetchRandomImage: fetchRandomImage)
         }
     }
 }

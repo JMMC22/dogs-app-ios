@@ -7,18 +7,23 @@
 
 import SwiftUI
 
-public struct DogsListView: View {
+public struct BreedsListView: View {
 
-    @StateObject private var viewModel: DogsListViewModel
+    @StateObject private var viewModel: BreedsListViewModel
 
-    public init(viewModel: DogsListViewModel) {
+    // MARK: Navigation
+    @EnvironmentObject var router: NavigationRouter
+
+    public init(viewModel: BreedsListViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
 
     public var body: some View {
         List {
             ForEach(viewModel.breeds, id: \.name) { breed in
-                Text(breed.name)
+                Button(breed.name) {
+                    router.event = .presentDetails(breed: breed.name)
+                }
             }
         }
         .searchable(text: $viewModel.searchText)
