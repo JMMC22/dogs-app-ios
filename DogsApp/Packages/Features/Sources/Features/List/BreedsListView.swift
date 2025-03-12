@@ -18,13 +18,21 @@ public struct BreedsListView: View {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
 
+    // MARK: Visual contants
+    private enum VisualConstants {
+        static let containerPadding: EdgeInsets = EdgeInsets(top: 12, leading: 16, bottom: 24, trailing: 16)
+    }
+
     public var body: some View {
-        List {
-            ForEach(viewModel.breeds, id: \.name) { breed in
-                Button(breed.name) {
-                    router.event = .presentDetails(breed: breed.name)
+        ScrollView {
+            LazyVStack(spacing: 12) {
+                ForEach(viewModel.breeds, id: \.name) { breed in
+                    BreedsListRowView(name: breed.name) {
+                        router.event = .presentDetails(breed: breed.name)
+                    }
                 }
             }
+            .padding(VisualConstants.containerPadding)
         }
         .searchable(text: $viewModel.searchText)
         .onAppear {
