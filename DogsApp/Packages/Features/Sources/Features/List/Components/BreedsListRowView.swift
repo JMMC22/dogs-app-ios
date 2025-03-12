@@ -31,7 +31,7 @@ struct BreedsListRowView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: VisualConstants.spacing) {
             Text(name.capitalized)
-                .dogFont(.Roboto(16, weight: .regular), color: .black)
+                .dogFont(.Roboto(16, weight: .regular), color: .textBlack)
             Divider()
         }
         .frame(maxWidth: .infinity, alignment: .leading)

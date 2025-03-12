@@ -46,6 +46,6 @@ public struct BreedDetailsView: View {
 
     private func title() -> some View {
         Text(viewModel.breed.capitalized)
-            .dogFont(.Roboto(24, weight: .black), color: .black)
+            .dogFont(.Roboto(24, weight: .black), color: .textBlack)
     }
 }
