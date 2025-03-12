@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BreedsListRowView: View {
 
+    // MARK: Properties
+
     private let name: String
     private let action: () -> Void
 
@@ -17,8 +19,16 @@ struct BreedsListRowView: View {
         self.action = action
     }
 
+    // MARK: Visual constants
+
+    private enum VisualConstants {
+        static let spacing: CGFloat = 8
+    }
+
+    // MARK: Body
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: VisualConstants.spacing) {
             Text(name.capitalized)
             Divider()
         }
