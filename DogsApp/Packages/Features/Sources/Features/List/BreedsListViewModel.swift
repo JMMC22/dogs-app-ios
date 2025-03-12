@@ -14,6 +14,8 @@ public class BreedsListViewModel: ObservableObject {
 
     @Published var breeds: [DogBreed] = []
     @Published var searchText: String = ""
+    @Published var error: DogAppError?
+    @Published var isLoading: Bool = false
 
     // MARK: - Use cases
 
@@ -37,6 +39,7 @@ public class BreedsListViewModel: ObservableObject {
 
 extension BreedsListViewModel {
     func fetchAllDogsBreeds() {
+        isLoading = true
         Task {
             let result = await fetchAllBreeds.execute()
             
@@ -54,11 +57,15 @@ extension BreedsListViewModel {
 
         DispatchQueue.main.async {
             self.breeds = breeds
+            self.isLoading = false
         }
     }
 
     private func fetchAllBreedsDidFail(error: DogAppError) {
-        print(error.localizedDescription)
+        DispatchQueue.main.async {
+            self.error = error
+            self.isLoading = false
+        }
     }
 }
 

@@ -19,6 +19,40 @@ public struct BreedsListView: View {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
 
+    // MARK: - Body
+    public var body: some View {
+        ScrollView {
+            if viewModel.isLoading {
+                ProgressView()
+            } else {
+                BreedsListContainerView(viewModel: viewModel) { event in
+                    router.event = event
+                }
+            }
+        }
+        .searchable(text: $viewModel.searchText)
+        .errorAlert(isPresented: .constant(viewModel.error != nil),
+                    message: viewModel.error?.localizedDescription ?? "Error")
+        .onAppear {
+            viewModel.viewOnAppear()
+        }
+    }
+}
+
+struct BreedsListContainerView: View {
+
+    @ObservedObject private var viewModel: BreedsListViewModel
+
+    // MARK: - Navigation
+
+    private let navigateTo: (AppNavigationEvent) -> Void
+
+    init(viewModel: BreedsListViewModel, 
+         navigateTo: @escaping (AppNavigationEvent) -> Void) {
+        self.viewModel = viewModel
+        self.navigateTo = navigateTo
+    }
+    
     // MARK: - Visual constants
 
     private enum VisualConstants {
@@ -26,21 +60,14 @@ public struct BreedsListView: View {
         static let listSpacing: CGFloat = 12
     }
 
-    // MARK: - Body
-    public var body: some View {
-        ScrollView {
-            LazyVStack(spacing: VisualConstants.listSpacing) {
-                ForEach(viewModel.breeds, id: \.name) { breed in
-                    BreedsListRowView(name: breed.name) {
-                        router.event = .presentDetails(breed: breed.name)
-                    }
+    var body: some View {
+        LazyVStack(spacing: VisualConstants.listSpacing) {
+            ForEach(viewModel.breeds, id: \.name) { breed in
+                BreedsListRowView(name: breed.name) {
+                    navigateTo(.presentDetails(breed: breed.name))
                 }
             }
-            .padding(VisualConstants.containerPadding)
         }
-        .searchable(text: $viewModel.searchText)
-        .onAppear {
-            viewModel.viewOnAppear()
-        }
+        .padding(VisualConstants.containerPadding)
     }
 }
