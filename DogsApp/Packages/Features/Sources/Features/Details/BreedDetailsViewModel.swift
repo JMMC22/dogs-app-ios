@@ -10,9 +10,13 @@ import Domain
 
 public class BreedDetailsViewModel: ObservableObject {
 
+    // MARK: - UI Properties
+
+    @Published var breed: String = ""
     @Published var imageURL: URL?
 
-    private let breed: String
+    // MARK: Use cases
+
     private let fetchRandomImage: FetchRandomImage
 
     public init(breed: String, fetchRandomImage: FetchRandomImage) {
@@ -26,6 +30,7 @@ public class BreedDetailsViewModel: ObservableObject {
 }
 
 // MARK: Fetch image
+
 extension BreedDetailsViewModel {
     private func fecthRandomImage() {
         Task {

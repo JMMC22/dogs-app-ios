@@ -11,7 +11,7 @@ public struct BreedsListView: View {
 
     @StateObject private var viewModel: BreedsListViewModel
 
-    // MARK: Navigation
+    // MARK: - Navigation
 
     @EnvironmentObject var router: NavigationRouter
 
@@ -19,14 +19,14 @@ public struct BreedsListView: View {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
 
-    // MARK: Visual constants
+    // MARK: - Visual constants
 
     private enum VisualConstants {
         static let containerPadding: EdgeInsets = EdgeInsets(top: 12, leading: 16, bottom: 24, trailing: 16)
         static let listSpacing: CGFloat = 12
     }
 
-    // MARK: Body
+    // MARK: - Body
     public var body: some View {
         ScrollView {
             LazyVStack(spacing: VisualConstants.listSpacing) {
