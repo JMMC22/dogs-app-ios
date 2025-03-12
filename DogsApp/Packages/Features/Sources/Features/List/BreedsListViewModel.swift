@@ -10,13 +10,17 @@ import Domain
 
 public class BreedsListViewModel: ObservableObject {
 
+    // MARK: - UI properties
+
     @Published var breeds: [DogBreed] = []
     @Published var searchText: String = ""
 
-    // MARK: Use cases
+    // MARK: - Use cases
+
     private let fetchAllBreeds: FetchAllBreeds
 
-    // MARK: Private properties
+    // MARK: - Private properties
+
     private var allBreeds: [DogBreed] = []
 
     public init(fetchAllBreeds: FetchAllBreeds) {
@@ -29,7 +33,8 @@ public class BreedsListViewModel: ObservableObject {
     }
 }
 
-// MARK: Remote requests
+// MARK: - Remote requests
+
 extension BreedsListViewModel {
     func fetchAllDogsBreeds() {
         Task {
@@ -57,7 +62,8 @@ extension BreedsListViewModel {
     }
 }
 
-// MARK: Search
+// MARK: - Search
+
 extension BreedsListViewModel {
     private func setupSearch() {
         $searchText

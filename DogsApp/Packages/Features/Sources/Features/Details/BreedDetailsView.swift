@@ -15,14 +15,35 @@ public struct BreedDetailsView: View {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
 
-    public var body: some View {
-        image()
-            .onAppear {
-                viewModel.viewDidAppear()
-            }
+    // MARK: - Visual constants
+
+    private enum VisualConstants {
+        static let containerPadding: EdgeInsets = EdgeInsets(top: 12, leading: 16, bottom: 24, trailing: 16)
+        static let spacing: CGFloat = 12
     }
-    
+
+    // MARK: - Body
+
+    public var body: some View {
+        VStack(alignment: .leading, spacing: VisualConstants.spacing) {
+            image()
+            Divider()
+            title()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .padding(VisualConstants.containerPadding)
+        .onAppear {
+            viewModel.viewDidAppear()
+        }
+    }
+
+    // MARK: - Container Views
+
     private func image() -> some View {
-        AsyncImage(url: viewModel.imageURL)
+        BreedDetailsImageView(imageURL: viewModel.imageURL)
+    }
+
+    private func title() -> some View {
+        Text(viewModel.breed.capitalized)
     }
 }
