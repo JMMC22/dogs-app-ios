@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UI
 
 struct BreedsListRowView: View {
 
@@ -30,6 +31,7 @@ struct BreedsListRowView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: VisualConstants.spacing) {
             Text(name.capitalized)
+                .dogFont(.Roboto(16, weight: .regular), color: .black)
             Divider()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
